@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lalin Cyrus | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2310b981'/%3E%3Ctext x='50' y='66' font-family='Arial' font-size='48' font-weight='bold' text-anchor='middle' fill='%23ffffff'%3ELC%3C/text%3E%3C/svg%3E">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: "Outfit", sans-serif;
+}
+
+body {
+  background: #022c22;
+  color: #ecfdf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Animated background mesh */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(5, 150, 105, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.03) 0%, transparent 50%);
+  z-index: 0;
+  animation: bgShift 10s ease-in-out infinite;
+}
+
+@keyframes bgShift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Grid overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: rgba(6, 78, 59, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(16, 185, 129, 0.12);
+  border-radius: 32px;
+  padding: 3rem 3.5rem;
+  max-width: 720px;
+  width: 90vw;
+  box-shadow:
+    0 32px 80px -20px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* Top accent line */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #10b981, transparent);
+  opacity: 0.5;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.03em;
+}
+
+.logo span { color: #10b981; }
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  padding: 0.3rem 0.8rem;
+  border-radius: 99px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Main content */
+main {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.left h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.left h1 span { color: #10b981; }
+
+.tagline {
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  color: #34d399;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  min-height: 1.5em;
+}
+
+.bio {
+  color: #6b9c87;
+  font-size: clamp(0.8rem, 1.3vw, 0.88rem);
+  line-height: 1.7;
+  max-width: 38ch;
+  margin-bottom: 1.25rem;
+}
+
+.socials {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 99px;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  color: #6b9c87;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.socials a:hover {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  transform: translateY(-1px);
+}
+
+/* Divider */
+.vline {
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(16, 185, 129, 0.15), transparent);
+  align-self: stretch;
+}
+
+/* Right column */
+.right h2 {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #6b9c87;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.skill {
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  font-size: 0.72rem;
+  color: #ecfdf5;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.skill:hover {
+  border-color: rgba(16, 185, 129, 0.25);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.info {
+  list-style: none;
+  margin-bottom: 1.25rem;
+}
+
+.info li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.06);
+  font-size: 0.78rem;
+}
+
+.info li:last-child { border-bottom: none; }
+
+.info .label { color: #6b9c87; }
+.info .value { color: #ecfdf5; font-weight: 600; }
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(16, 185, 129, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  font-size: 0.7rem;
+  color: #4a7c6b;
+}
+
+footer .loc {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  color: #6b9c87;
+}
+
+/* Corner accents */
+.corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-color: rgba(16, 185, 129, 0.15);
+  border-style: solid;
+}
+.corner-tl { top: 20px; left: 20px; border-width: 1.5px 0 0 1.5px; border-radius: 8px 0 0 0; }
+.corner-br { bottom: 20px; right: 20px; border-width: 0 1.5px 1.5px 0; border-radius: 0 0 8px 0; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  html, body { overflow: auto; height: auto; min-height: 100vh; }
+  body { padding: 1.5rem 0; align-items: flex-start; }
+  .card { padding: 2rem; }
+  main { grid-template-columns: 1fr; gap: 1.5rem; }
+  .vline { display: none; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-br"></div>
+
+  <header>
+    <div class="logo">LC<span>.</span></div>
+    <div class="status"><span class="status-dot"></span> Open to collaborate</div>
+  </header>
+
+  <main>
+    <div class="left">
+      <h1>Lalin <span>Cyrus</span></h1>
+      <div class="tagline" id="scrambleTagline" data-words="Computer Science student,Web Developer,Creative Thinker"></div>
+      <p class="bio">
+        First-year Computer Science student at University of the Cordilleras. Passionate about building clean, user-friendly websites and exploring the world of software development.
+      </p>
+      <div class="socials">
+        <a href="#">&#9733; GitHub</a>
+        <a href="#">in LinkedIn</a>
+        <a href="#">@ Email</a>
+      </div>
+    </div>
+
+    <div class="vline"></div>
+
+    <div class="right">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Python</span>
+        <span class="skill">UI Design</span>
+        <span class="skill">Git</span>
+      </div>
+
+      <h2>Education</h2>
+      <ul class="info">
+        <li><span class="label">University</span><span class="value">Univ. of the Cordilleras</span></li>
+        <li><span class="label">Course</span><span class="value">BS Computer Science</span></li>
+        <li><span class="label">Year</span><span class="value">1st Year</span></li>
+        <li><span class="label">Strand</span><span class="value">STEM</span></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Lalin Cyrus</p>
+    <div class="loc">&#128205; Baguio City, Philippines</div>
+  </footer>
+</div>
+
+<script>
+const scrambleEl = document.getElementById('scrambleTagline');
+if (scrambleEl) {
+  const words = scrambleEl.dataset.words.split(',');
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  let wordIndex = 0;
+
+  function scrambleText(element, target) {
+    let iter = 0;
+    const interval = setInterval(() => {
+      element.textContent = target
+        .split('')
+        .map((letter, idx) => {
+          if (letter === ' ') return ' ';
+          if (idx < iter) return target[idx];
+          return chars[Math.floor(Math.random() * chars.length)];
+        })
+        .join('');
+      if (iter >= target.length) clearInterval(interval);
+      iter += 1 / 2.5;
+    }, 30);
+  }
+
+  function cycleWords() {
+    scrambleText(scrambleEl, words[wordIndex]);
+    wordIndex = (wordIndex + 1) % words.length;
+  }
+
+  cycleWords();
+  setInterval(cycleWords, 3000);
+}
+</script>
+
+</body>
+</html>
